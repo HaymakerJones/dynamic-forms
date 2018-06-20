@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { QuestionService } from './services/question.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  questions: any[] = [];
+
+  constructor(private qs: QuestionService) {
+    this.questions = qs.getQuestions();
+  }
+
 }
